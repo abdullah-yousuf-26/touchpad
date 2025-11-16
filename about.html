@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - TouchPad Solutions</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        :root {
+            --color-brand-green: #22C55E;
+            --color-brand-green-dark: #16A34A;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .bg-brand-green { background-color: var(--color-brand-green); }
+        .text-brand-green { color: var(--color-brand-green); }
+        .border-brand-green { border-color: var(--color-brand-green); }
+        .hover\:bg-brand-green-dark:hover { background-color: var(--color-brand-green-dark); }
+        .hover\:text-brand-green:hover { color: var(--color-brand-green); }
+        .hover\:text-brand-green-dark:hover { color: var(--color-brand-green-dark); }
+        
+        .active-service-link-mobile {
+            color: #ffffff;
+            background-color: var(--color-brand-green-dark);
+            font-weight: 600;
+        }
+        .active-service-link {
+            color: var(--color-brand-green);
+            background-color: #f0fdf4;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-brand-green shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets\logo.png" alt="TouchPad Solutions Logo" class="h-10 w-10 rounded-full">
+                    <span class="font-extrabold text-2xl text-white">TouchPad</span>
+                    <span class="font-bold text-2xl text-gray-200">Solutions</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-2">
+                    <a href="index.html" class="font-medium text-gray-100 hover:text-white hover:bg-white/10 px-3 py-1 rounded-md transition-all">Home</a>
+                    <div class="relative" id="services-dropdown-container">
+                        <button id="services-dropdown-button" class="flex items-center font-medium text-gray-100 hover:text-white hover:bg-white/10 px-3 py-1 rounded-md transition-all focus:outline-none">
+                            Services
+                            <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200"></i>
+                        </button>
+                        <div id="services-dropdown-menu" class="hidden absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl z-50 ring-1 ring-black ring-opacity-5 py-1">
+                            <a href="accounting.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Accounting & Bookkeeping</a>
+                            <a href="web-development.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Web Development</a>
+                            <a href="digital-marketing.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Digital Marketing</a>
+                            <a href="cad-design.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Auto CAD & SolidWorks</a>
+                            <a href="professional-writing.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Professional Writing</a>
+                            <a href="virtual-assistant.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Virtual Assistant</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="font-medium text-white bg-white/20 px-3 py-1 rounded-md transition-all">About Us</a>
+                    <a href="contact.html" class="font-medium text-gray-100 hover:text-white hover:bg-white/10 px-3 py-1 rounded-md transition-all">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-gray-200 focus:outline-none">
+                        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Home</a>
+                <div>
+                    <button id="mobile-services-button" class="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark focus:outline-none">
+                        <span>Services</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden pl-4 py-2 space-y-2">
+                        <a href="accounting.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Accounting & Bookkeeping</a>
+                        <a href="web-development.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Web Development</a>
+                        <a href="digital-marketing.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Digital Marketing</a>
+                        <a href="cad-design.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Auto CAD & SolidWorks</a>
+                        <a href="professional-writing.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Professional Writing</a>
+                        <a href="virtual-assistant.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Virtual Assistant</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium active-service-link-mobile">About Us</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section for About Us -->
+        <section id="home" class="bg-white py-20 md:py-32 relative overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="assets\7.png" alt="Our Team background" class="w-full h-full object-cover opacity-10">
+            </div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    About <span class="text-brand-green">TouchPad Solutions</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    We are a dedicated team of professionals empowering businesses through technology, creativity, and precision. Learn more about our mission and values.
+                </p>
+            </div>
+        </section>
+
+        <!-- Our Mission & Vision -->
+        <section id="mission" class="py-20 md:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="text-sm font-semibold text-brand-green uppercase tracking-wider">Our Purpose</span>
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">Our Mission & Vision</h2>
+                        <p class="mt-4 text-lg text-gray-600">
+                            Our mission is to provide comprehensive,
+                             reliable, and affordable professional services that
+                              help businesses of all sizes thrive. We aim to be a 
+                              one-stop solution for our clients, handling their 
+                              complex needs—from finance to technology—so 
+                              they can focus on growth.
+                        </p>
+                        <p class="mt-4 text-lg text-gray-600">
+                            Our vision is to be a trusted global partner, known for our precision, creativity, and unwavering commitment to client success.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="assets\about page.png" alt="Team working in an office" class="rounded-xl shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section (from PDF) -->
+        <section id="why-choose-us" class="bg-white py-20 md:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-sm font-semibold text-brand-green uppercase tracking-wider">Why Choose Us</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">Your Reliable Partner for Growth</h2>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center">
+                            <i data-lucide="users-round"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Skilled Professionals</h4>
+                            <p class="mt-1 text-gray-600">Our team consists of experienced experts from multiple industries, ready to tackle any challenge.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Global Service Coverage</h4>
+                            <p class="mt-1 text-gray-600">We proudly serve clients in the USA, UK, Canada, Australia, and beyond, adapting to your time zone.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center">
+                            <i data-lucide="dollar-sign"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Affordable & Flexible Pricing</h4>
+                            <p class="mt-1 text-gray-600">We offer competitive pricing on a monthly or project-by-project basis to fit your budget.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center">
+                            <i data-lucide="bar-chart-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Data-Driven & Reliable</h4>
+                            <p class="mt-1 text-gray-600">Our service delivery is creative, data-driven, and most importantly, reliable. We get the job done.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="py-20 md:py-28 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">
+                    Ready to Work With Us?
+                </h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Let's discuss how our team can help your business achieve its goals. Get in touch with us today.
+                </p>
+                <div class="mt-10">
+                    <a href="contact.html" class="px-8 py-3 bg-white text-brand-green text-lg font-semibold rounded-full shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105">
+                        Contact Us Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-brand-green pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img src="assets\logo.png" alt="TouchPad Solutions Logo" class="h-10 w-10 rounded-full">
+                        <span class="font-extrabold text-2xl text-white">TouchPad</span>
+                        <span class="font-bold text-2xl text-gray-200">Solutions</span>
+                    </a>
+                    <p class="mt-4 text-gray-100">
+                        Empowering businesses with technology, creativity, and precision.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-white tracking-wide uppercase">Quick Links</h5>
+                    <nav class="mt-4 space-y-2">
+                        <a href="index.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Home</a>
+                        <a href="about.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">About Us</a>
+                        <a href="contact.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Contact</a>
+                        <a href="#" class="block text-gray-100 hover:text-white hover:underline transition-colors">Privacy Policy</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white tracking-wide uppercase">Services</h5>
+                    <nav class="mt-4 space-y-2">
+                        <a href="accounting.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Accounting & Bookkeeping</a>
+                        <a href="web-development.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Web Development</a>
+                        <a href="digital-marketing.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Digital Marketing</a>
+                        <a href="cad-design.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">CAD Design</a>
+                        <a href="professional-writing.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Professional Writing</a>
+                        <a href="virtual-assistant.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Virtual Assistant</a>
+                    </nav>
+                </div>
+                
+                <div>
+                    <h5 class="font-bold text-white tracking-wide uppercase">Contact Us</h5>
+                    <ul class="mt-4 space-y-3 text-gray-100">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-white flex-shrink-0 mt-1"></i>
+                            <a href="mailto:info@touchpad-soultions.com" class="hover:text-white hover:underline">info@touchpad-soultions.com</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-white flex-shrink-0 mt-1"></i>
+                            <span>+880 1794-207864</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-white flex-shrink-0 mt-1"></i>
+                            <span>House# 43, Road# 27, Banani, Dhaka-1213</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 border-t border-white border-opacity-20 pt-8 text-center">
+                <p class="text-gray-100 text-sm">
+                    &copy; <span id="current-year"></span> TouchPad Solutions. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Script for Dropdown Menus and Icons -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+            if(mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    openIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                });
+            }
+            
+            const servicesDropdownContainer = document.getElementById('services-dropdown-container');
+            const servicesDropdownButton = document.getElementById('services-dropdown-button');
+            const servicesDropdownMenu = document.getElementById('services-dropdown-menu');
+            const servicesChevron = servicesDropdownButton ? servicesDropdownButton.querySelector('i') : null;
+            if (servicesDropdownButton) {
+                servicesDropdownButton.addEventListener('click', () => {
+                    const isOpen = !servicesDropdownMenu.classList.contains('hidden');
+                    servicesDropdownMenu.classList.toggle('hidden');
+                    servicesChevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            }
+            
+            const mobileServicesButton = document.getElementById('mobile-services-button');
+            const mobileServicesMenu = document.getElementById('mobile-services-menu');
+            const mobileChevron = mobileServicesButton ? mobileServicesButton.querySelector('i') : null;
+            if (mobileServicesButton) {
+                mobileServicesButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = !mobileServicesMenu.classList.contains('hidden');
+                    mobileServicesMenu.classList.toggle('hidden');
+                    mobileChevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (servicesDropdownContainer && !servicesDropdownContainer.contains(e.target)) {
+                    if (servicesDropdownMenu) servicesDropdownMenu.classList.add('hidden');
+                    if (servicesChevron) servicesChevron.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            document.querySelectorAll('#mobile-menu a[href], #mobile-services-menu a[href]').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                    if (openIcon) openIcon.classList.remove('hidden');
+                    if (closeIcon) closeIcon.classList.add('hidden');
+                    if (mobileServicesMenu) mobileServicesMenu.classList.add('hidden');
+                    if (mobileChevron) mobileChevron.style.transform = 'rotate(0deg)';
+                    if (servicesDropdownMenu) servicesDropdownMenu.classList.add('hidden');
+                    if (servicesChevron) servicesChevron.style.transform = 'rotate(0deg)';
+                });
+            });
+
+            const currentYearEl = document.getElementById('current-year');
+            if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error("Lucide icons script not loaded or failed to initialize.");
+            }
+        });
+    </script>
+</body>
+</html>

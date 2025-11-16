@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TouchPad Solutions - Empowering Your Business</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style>
+        :root {
+            --color-brand-green: #22C55E;
+            --color-brand-green-dark: #16A34A;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .bg-brand-green { background-color: var(--color-brand-green); }
+        .text-brand-green { color: var(--color-brand-green); }
+        .border-brand-green { border-color: var(--color-brand-green); }
+        .hover\:bg-brand-green-dark:hover { background-color: var(--color-brand-green-dark); }
+        .hover\:text-brand-green:hover { color: var(--color-brand-green); }
+        .hover\:text-brand-green-dark:hover { color: var(--color-brand-green-dark); }
+        
+        /* Style for active service page link */
+        .active-service-link {
+            color: var(--color-brand-green);
+            background-color: #f0fdf4; /* Very light green */
+            font-weight: 600;
+        }
+        .active-service-link-mobile {
+            color: #ffffff;
+            background-color: var(--color-brand-green-dark);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-brand-green shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- UPDATED: Link to index.html and added Logo Placeholder -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets\logo.png" alt="TouchPad Solutions Logo" class="h-10 w-10 rounded-full">
+                    <span class="font-extrabold text-2xl text-white">TouchPad</span>
+                    <span class="font-bold text-2xl text-gray-200">Solutions</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-2">
+                    <!-- UPDATED: Added new hover effect and active state -->
+                    <a href="#home" class="font-medium text-white bg-white/20 px-3 py-1 rounded-md transition-all">Home</a>
+                    <div class="relative" id="services-dropdown-container">
+                        <!-- UPDATED: Added new hover effect -->
+                        <button id="services-dropdown-button" class="flex items-center font-medium text-gray-100 hover:text-white hover:bg-white/10 px-3 py-1 rounded-md transition-all focus:outline-none">
+                            Services
+                            <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200"></i>
+                        </button>
+                        <div id="services-dropdown-menu" class="hidden absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl z-50 ring-1 ring-black ring-opacity-5 py-1">
+                            <a href="accounting.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Accounting & Bookkeeping</a>
+                            <a href="web-development.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Web Development</a>
+                            <a href="digital-marketing.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Digital Marketing</a>
+                            <a href="cad-design.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Auto CAD & SolidWorks</a>
+                            <a href="professional-writing.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Professional Writing</a>
+                            <a href="virtual-assistant.html" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 hover:text-brand-green">Virtual Assistant</a>
+                        </div>
+                    </div>
+                    <!-- UPDATED: Renamed "Why Us" to "About Us" and linked to about.html, new hover -->
+                    <a href="about.html" class="font-medium text-gray-100 hover:text-white hover:bg-white/10 px-3 py-1 rounded-md transition-all">About Us</a>
+                    <!-- UPDATED: Linked to contact.html, new hover -->
+                    <a href="contact.html" class="font-medium text-gray-100 hover:text-white hover:bg-white/10 px-3 py-1 rounded-md transition-all">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-white hover:text-gray-200 focus:outline-none">
+                        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium active-service-link-mobile">Home</a>
+                <div>
+                    <button id="mobile-services-button" class="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark focus:outline-none">
+                        <span>Services</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden pl-4 py-2 space-y-2">
+                        <a href="accounting.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Accounting & Bookkeeping</a>
+                        <a href="web-development.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Web Development</a>
+                        <a href="digital-marketing.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Digital Marketing</a>
+                        <a href="cad-design.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Auto CAD & SolidWorks</a>
+                        <a href="professional-writing.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Professional Writing</a>
+                        <a href="virtual-assistant.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Virtual Assistant</a>
+                    </div>
+                </div>
+                <!-- UPDATED: Renamed and linked to about.html -->
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">About Us</a>
+                <!-- UPDATED: Linked to contact.html -->
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-white hover:bg-brand-green-dark">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="home" class="bg-white py-20 md:py-32 relative overflow-hidden">
+            <!-- Low opacity background pattern -->
+            <div class="absolute inset-0 z-0" style="background-image: radial-gradient(var(--color-brand-green) 0.7px, transparent 0.7px); background-size: 20px 20px; opacity: 0.15;"></div>
+            
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                    Empowering Businesses through
+                    <br class="hidden md:block">
+                    <span class="text-brand-green">Technology, Creativity & Precision</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Welcome to TouchPad Solutions. We provide a complete suite of professional services to scale your business, from expert accounting and web development to data-driven digital marketing and precise CAD design.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#services" class="px-8 py-3 bg-brand-green text-white text-lg font-semibold rounded-full shadow-lg hover:bg-brand-green-dark transition-all transform hover:scale-105">
+                        Explore Our Services
+                    </a>
+                    <a href="contact.html" class="px-8 py-3 bg-gray-200 text-gray-800 text-lg font-semibold rounded-full shadow-lg hover:bg-gray-300 transition-all transform hover:scale-105">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section ("What We Offer") -->
+        <section id="services" class="py-20 md:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-sm font-semibold text-brand-green uppercase tracking-wider">Our Services</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">What We Offer</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                        A full range of solutions to meet your business needs, delivered with expertise and reliability.
+                    </p>
+                </div>
+                
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Service Card: Accounting & Bookkeeping -->
+                    <div id="service-accounting" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img src="https://placehold.co/600x400/22C55E/FFFFFF?text=Accounting" alt="Accounting & Bookkeeping Placeholder" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900">Accounting & Bookkeeping</h3>
+                            <p class="mt-3 text-gray-600 text-base">
+                                Simplify your finances with expert services for QuickBooks, Xero, Zoho, payroll, tax prep, and virtual CFO consulting. We ensure accuracy that meets international standards.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="accounting.html" class="font-medium text-brand-green hover:text-brand-green-dark transition-colors">Learn More &rarr;</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service Card: Web Development -->
+                    <div id="service-webdev" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Web+Development" alt="Web Development Placeholder" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900">Web Development</h3>
+                            <p class="mt-3 text-gray-600 text-base">
+                                Create fast, functional, and visually stunning websites. We build everything from portfolio sites and blogs to secure, scalable e-commerce stores that make an impact.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="web-development.html" class="font-medium text-brand-green hover:text-brand-green-dark transition-colors">Learn More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Digital Marketing -->
+                    <div id="service-marketing" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img src="https://placehold.co/600x400/EC4899/FFFFFF?text=Digital+Marketing" alt="Digital Marketing Placeholder" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900">Digital Marketing</h3>
+                            <p class="mt-3 text-gray-600 text-base">
+                                Boost your brand's visibility with data-driven strategies. Our experts deliver real results through SEO, social media advertising, Google Ads, and targeted content marketing.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="digital-marketing.html" class="font-medium text-brand-green hover:text-brand-green-dark transition-colors">Learn More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Auto CAD Design -->
+                    <div id="service-cad" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img src="https://placehold.co/600x400/F97316/FFFFFF?text=CAD+Design" alt="Auto CAD Design Placeholder" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900">Auto CAD & SolidWorks Design</h3>
+                            <p class="mt-3 text-gray-600 text-base">
+                                Transform your ideas into precise, functional designs. We offer advanced 2D & 3D modeling, technical drafting, product rendering, and simulation expertise.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="cad-design.html" class="font-medium text-brand-green hover:text-brand-green-dark transition-colors">Learn More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Professional Writing -->
+                    <div id="service-writing" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=Professional+Writing" alt="Professional Writing Placeholder" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900">Professional Writing</h3>
+                            <p class="mt-3 text-gray-600 text-base">
+                                We craft clear, persuasive, and humanized content. Our services include government tender proposals, academic writing, business proposals, and engaging website content.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="professional-writing.html" class="font-medium text-brand-green hover:text-brand-green-dark transition-colors">Learn More &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Service Card: Virtual Assistant -->
+                    <div id="service-va" class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                        <img src="https://placehold.co/600x400/6B7280/FFFFFF?text=Virtual+Assistant" alt="Virtual Assistant Placeholder" class="w-full h-56 object-cover">
+                        <div class="p-6 flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900">Virtual Assistant</h3>
+                            <p class="mt-3 text-gray-600 text-base">
+                                Free up your time by letting our VAs handle your everyday tasks. We provide professional administrative support, data entry, customer service, and e-commerce assistance.
+                            </p>
+                        </div>
+                        <div class="p-6 pt-0">
+                            <a href="virtual-assistant.html" class="font-medium text-brand-green hover:text-brand-green-dark transition-colors">Learn More &rarr;</a>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us Section -->
+        <section id="about" class="bg-white py-20 md:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <span class="text-sm font-semibold text-brand-green uppercase tracking-wider">About Us</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mt-2">Your Reliable Partner for Growth</h2>
+                </div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center">
+                            <i data-lucide="users-round"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Skilled Professionals</h4>
+                            <p class="mt-1 text-gray-600">Our team consists of experienced experts from multiple industries, ready to tackle any challenge.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center">
+                            <i data-lucide="globe"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Global Service Coverage</h4>
+                            <p class="mt-1 text-gray-600">We proudly serve clients in the USA, UK, Canada, Australia, and beyond, adapting to your time zone.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center">
+                            <i data-lucide="dollar-sign"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Affordable & Flexible Pricing</h4>
+                            <p class="mt-1 text-gray-600">We offer competitive pricing on a monthly or project-by-project basis to fit your budget.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-brand-green text-white rounded-full flex items-center justify-center">
+                            <i data-lucide="bar-chart-3"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900">Data-Driven & Reliable</h4>
+                            <p class="mt-1 text-gray-600">Our service delivery is creative, data-driven, and most importantly, reliable. We get the job done.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                     <a href="about.html" class="px-8 py-3 bg-brand-green text-white text-lg font-semibold rounded-full shadow-lg hover:bg-brand-green-dark transition-all transform hover:scale-105">
+                        Learn More About Us
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand-green pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1: Logo & Info -->
+                <div>
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img src="assets\logo.png" alt="TouchPad Solutions Logo" class="h-10 w-10 rounded-full">
+                        <span class="font-extrabold text-2xl text-white">TouchPad</span>
+                        <span class="font-bold text-2xl text-gray-200">Solutions</span>
+                    </a>
+                    <p class="mt-4 text-gray-100">
+                        Empowering businesses with technology, creativity, and precision.
+                    </p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h5 class="font-bold text-white tracking-wide uppercase">Quick Links</h5>
+                    <nav class="mt-4 space-y-2">
+                        <a href="#home" class="block text-gray-100 hover:text-white hover:underline transition-colors">Home</a>
+                        <a href="index.html#services" class="block text-gray-100 hover:text-white hover:underline transition-colors">Services</a>
+                        <a href="about.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">About Us</a>
+                        <a href="#" class="block text-gray-100 hover:text-white hover:underline transition-colors">Privacy Policy</a>
+                    </nav>
+                </div>
+
+                <!-- Column 3: Our Services -->
+                <div>
+                    <h5 class="font-bold text-white tracking-wide uppercase">Services</h5>
+                    <nav class="mt-4 space-y-2">
+                        <a href="accounting.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Accounting & Bookkeeping</a>
+                        <a href="web-development.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Web Development</a>
+                        <a href="digital-marketing.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Digital Marketing</a>
+                        <a href="cad-design.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">CAD Design</a>
+                        <a href="professional-writing.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Professional Writing</a>
+                        <a href="virtual-assistant.html" class="block text-gray-100 hover:text-white hover:underline transition-colors">Virtual Assistant</a>
+                    </nav>
+                </div>
+                
+                <!-- Column 4: Contact Info -->
+                <div>
+                    <h5 class="font-bold text-white tracking-wide uppercase">Contact Us</h5>
+                    <ul class="mt-4 space-y-3 text-gray-100">
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-white flex-shrink-0 mt-1"></i>
+                            <a href="mailto:info@touchpad-soultions.com" class="hover:text-white hover:underline">info@touchpad-soultions.com</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-white flex-shrink-0 mt-1"></i>
+                            <span>+880 1794-207864</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-white flex-shrink-0 mt-1"></i>
+                            <span>House# 43, Road# 27, Banani, Dhaka-1213</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="mt-12 border-t border-white border-opacity-20 pt-8 text-center">
+                <p class="text-gray-100 text-sm">
+                    &copy; <span id="current-year"></span> TouchPad Solutions. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- UPDATED: Special script for index.html to handle same-page anchor scrolling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+            if(mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    openIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                });
+            }
+            
+            // --- Desktop Services Dropdown ---
+            const servicesDropdownContainer = document.getElementById('services-dropdown-container');
+            const servicesDropdownButton = document.getElementById('services-dropdown-button');
+            const servicesDropdownMenu = document.getElementById('services-dropdown-menu');
+            const servicesChevron = servicesDropdownButton ? servicesDropdownButton.querySelector('i') : null;
+            if (servicesDropdownButton) {
+                servicesDropdownButton.addEventListener('click', () => {
+                    const isOpen = !servicesDropdownMenu.classList.contains('hidden');
+                    servicesDropdownMenu.classList.toggle('hidden');
+                    servicesChevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            }
+            
+            // --- Mobile Services Dropdown ---
+            const mobileServicesButton = document.getElementById('mobile-services-button');
+            const mobileServicesMenu = document.getElementById('mobile-services-menu');
+            const mobileChevron = mobileServicesButton ? mobileServicesButton.querySelector('i') : null;
+            if (mobileServicesButton) {
+                mobileServicesButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const isOpen = !mobileServicesMenu.classList.contains('hidden');
+                    mobileServicesMenu.classList.toggle('hidden');
+                    mobileChevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                });
+            }
+
+            // --- Close dropdowns on outside click ---
+            window.addEventListener('click', (e) => {
+                if (servicesDropdownContainer && !servicesDropdownContainer.contains(e.target)) {
+                    if (servicesDropdownMenu) servicesDropdownMenu.classList.add('hidden');
+                    if (servicesChevron) servicesChevron.style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Close mobile menu when a LINK is clicked
+            document.querySelectorAll('#mobile-menu a[href], #mobile-services-menu a[href]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    
+                    // Allow navigation to other pages
+                    if (href && !href.startsWith('#') && !href.startsWith('index.html#')) {
+                        return; // Do not prevent default for external/other page links
+                    }
+
+                    // Handle same-page anchor links
+                    if (href && (href.startsWith('#') || href.startsWith('index.html#'))) {
+                        const targetId = href.split('#')[1];
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            e.preventDefault();
+                            const offsetTop = targetElement.offsetTop;
+                            window.scrollTo({
+                                top: offsetTop - 80, // Adjust for sticky header
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+
+                    // Close all menus
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                    if (openIcon) openIcon.classList.remove('hidden');
+                    if (closeIcon) closeIcon.classList.add('hidden');
+                    if (mobileServicesMenu) mobileServicesMenu.classList.add('hidden');
+                    if (mobileChevron) mobileChevron.style.transform = 'rotate(0deg)';
+                    if (servicesDropdownMenu) servicesDropdownMenu.classList.add('hidden');
+                    if (servicesChevron) servicesChevron.style.transform = 'rotate(0deg)';
+                });
+            });
+
+            // Set current year in footer
+            const currentYearEl = document.getElementById('current-year');
+            if (currentYearEl) currentYearEl.textContent = new Date().getFullYear();
+            
+            // Initialize Lucide Icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.error("Lucide icons script not loaded or failed to initialize.");
+            }
+        });
+    </script>
+
+</body>
+</html>
