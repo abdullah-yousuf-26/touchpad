@@ -42,6 +42,37 @@
             background-color: #f0fdf4;
             font-weight: 600;
         }
+
+        /* Styles for form inputs */
+        .form-input {
+            border: 1px solid #86efac; /* Tailwind green-300 */
+            transition: all 0.2s ease-in-out;
+        }
+        /* Styles for form focus */
+        .form-input:focus {
+            border-color: var(--color-brand-green);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2); /* Light green shadow */
+            outline: none;
+        }
+
+        /* Loader for the submit button */
+        .loader-small {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #FFF;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
@@ -49,11 +80,12 @@
     <!-- Header / Navigation Bar -->
     <header class="bg-brand-green shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
+                <!-- UPDATED: Kept your new logo path -->
                 <a href="index.html" class="flex items-center space-x-2">
-                    <img src="assets\logo.png" alt="TouchPad Solutions Logo" class="h-10 w-10 rounded-full">
-                    <span class="font-extrabold text-2xl text-white">TouchPad</span>
-                    <span class="font-bold text-2xl text-gray-200">Solutions</span>
+                    <img src="assets\logo.png" alt="TouchPad Solutions Logo" class="h-14 w-14 rounded-full">
+                    <span class="font-extrabold text-3xl text-white">TouchPad</span>
+                    <span class="font-bold text-3xl text-gray-200">Solutions</span>
                 </a>
                 
                 <!-- Desktop Navigation -->
@@ -180,7 +212,7 @@
                     <div class="bg-white p-8 rounded-xl shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-900 mb-6">Direct & Social Links</h3>
                         
-                        <!-- WhatsApp -->
+                        <!-- UPDATED: Kept your first WhatsApp button -->
                         <div class="mb-6">
                             <h4 class="text-lg font-semibold text-gray-800 mb-3">Chat with us on WhatsApp</h4>
                             <p class="text-gray-600 mb-4">Click the button below to start a chat instantly. </p>
@@ -189,13 +221,10 @@
                                 Start WhatsApp Chat
                             </a>
                         </div>
-
-
-
-                         <!-- WhatsApp-2 -->
+                        
+                         <!-- UPDATED: Kept your second WhatsApp button -->
                         <div class="mb-6">
                             <h4 class="text-lg font-semibold text-gray-800 mb-3">Or</h4>
-                            
                             <a href="https://wa.me/8801711961484" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-full shadow-md hover:bg-green-600 transition-all">
                                 <i data-lucide="message-circle"></i>
                                 Start WhatsApp Chat
@@ -205,23 +234,90 @@
                         <!-- Social Media -->
                         <div>
                             <h4 class="text-lg font-semibold text-gray-800 mb-4">Follow Us</h4>
+                            <!-- UPDATED: Replaced Twitter with X and added YouTube -->
                             <div class="flex space-x-4">
-                                <a href="#" class="text-gray-500 hover:text-blue-600 transition-colors" title="Facebook">
+                                <a href="https://www.facebook.com/share/1AnXHLqcZ8/" class="text-gray-500 hover:text-blue-600 transition-colors" title="Facebook">
                                     <i data-lucide="facebook" class="w-8 h-8"></i>
                                 </a>
-                                <a href="#" class="text-gray-500 hover:text-blue-700 transition-colors" title="LinkedIn">
+                                <a href="https://www.linkedin.com/company/touchpadsolutions/" class="text-gray-500 hover:text-blue-700 transition-colors" title="LinkedIn">
                                     <i data-lucide="linkedin" class="w-8 h-8"></i>
                                 </a>
-                                <a href="#" class="text-gray-500 hover:text-blue-400 transition-colors" title="Twitter">
-                                    <i data-lucide="twitter" class="w-8 h-8"></i>
+                                <a href="#" class="text-gray-500 hover:text-black transition-colors" title="X (Twitter)">
+                                    <i data-lucide="x" class="w-8 h-8"></i>
                                 </a>
-                                <a href="#" class="text-gray-500 hover:text-pink-500 transition-colors" title="Instagram">
+                                <a href="https://www.instagram.com/touchpad_solutions?igsh=MWJidXprd2NwZnA4eQ==" class="text-gray-500 hover:text-pink-500 transition-colors" title="Instagram">
                                     <i data-lucide="instagram" class="w-8 h-8"></i>
+                                </a>
+                                <a href="https://youtube.com/@touchpadsolutions?si=V4NKmO8i25MfkSag" class="text-gray-500 hover:text-red-600 transition-colors" title="YouTube">
+                                    <i data-lucide="youtube" class="w-8 h-8"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Contact Form Section -->
+        <section id="contact-form" class="bg-white py-20 md:py-28 border-t border-gray-100">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Send Us a Message</h2>
+                        <p class="mt-4 text-lg text-gray-600">
+                            Have a specific question? Fill out the form below and we'll get back to you.
+                        </p>
+                    </div>
+                    
+                    <!-- UPDATED: Added Formspree action and method -->
+                    <form id="visitor-contact-form" 
+                          action="https://formspree.io/f/xldavqze" 
+                          method="POST" 
+                          class="space-y-6">
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <!-- UPDATED: Added light green border and py-3 for height -->
+                                <input type="text" name="full-name" id="full-name" required
+                                    class="form-input block w-full rounded-lg shadow-sm sm:text-sm py-3"
+                                    placeholder="Jane Doe">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <!-- UPDATED: Added light green border and py-3 for height -->
+                                <input type="email" name="email" id="email" required
+                                    class="form-input block w-full rounded-lg shadow-sm sm:text-sm py-3"
+                                    placeholder="you@example.com">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <!-- UPDATED: Added light green border and py-3 for height -->
+                            <input type="text" name="subject" id="subject"
+                                class="form-input block w-full rounded-lg shadow-sm sm:text-sm py-3"
+                                placeholder="Service Inquiry">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <!-- UPDATED: Added light green border -->
+                            <textarea id="message" name="message" rows="5" required
+                                class="form-input block w-full rounded-lg shadow-sm sm:text-sm"
+                                placeholder="How can we help you?"></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <!-- UPDATED: Added classes for loading spinner -->
+                            <button type="submit"
+                                class="px-10 py-3 bg-brand-green text-white text-lg font-semibold rounded-full shadow-lg hover:bg-brand-green-dark transition-all transform hover:scale-105 flex items-center justify-center w-full sm:w-auto mx-auto disabled:opacity-70 disabled:cursor-not-allowed">
+                                <span>Send Message</span>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -233,6 +329,7 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
+                    <!-- UPDATED: Kept your new logo path -->
                     <a href="index.html" class="flex items-center space-x-2">
                         <img src="assets\logo.png" alt="TouchPad Solutions Logo" class="h-10 w-10 rounded-full">
                         <span class="font-extrabold text-2xl text-white">TouchPad</span>
@@ -241,11 +338,13 @@
                     <p class="mt-4 text-gray-100">
                         Empowering businesses with technology, creativity, and precision.
                     </p>
+                    <!-- UPDATED: Footer social icons -->
                     <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
-                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="twitter" class="w-6 h-6"></i></a>
-                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
-                        <a href="#" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                        <a href="https://www.facebook.com/share/1AnXHLqcZ8/" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-100 hover:text-white transition-colors" title="X (Twitter)"><i data-lucide="x" class="w-6 h-6"></i></a>
+                        <a href="https://www.linkedin.com/company/touchpadsolutions/" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                        <a href="https://www.instagram.com/touchpad_solutions?igsh=MWJidXprd2NwZnA4eQ==" class="text-gray-100 hover:text-white transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                        <a href="https://youtube.com/@touchpadsolutions?si=V4NKmO8i25MfkSag" class="text-gray-100 hover:text-white transition-colors" title="YouTube"><i data-lucide="youtube" class="w-6 h-6"></i></a>
                     </div>
                 </div>
                 
@@ -298,9 +397,31 @@
         </div>
     </footer>
     
+    <!-- UPDATED: Added Modal for success message -->
+    <div id="success-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg shadow-xl p-6 max-w-sm mx-auto text-center">
+            <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100">
+                <i data-lucide="check" class="h-6 w-6 text-green-600"></i>
+            </div>
+            <h3 class="text-lg leading-6 font-medium text-gray-900 mt-4">Message Sent!</h3>
+            <div class="mt-2">
+                <p class="text-sm text-gray-600">
+                    Thank you for reaching out. We'll get back to you as soon as possible.
+                </p>
+            </div>
+            <div class="mt-5">
+                <button id="close-modal-btn" type="button"
+                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-brand-green text-base font-medium text-white hover:bg-brand-green-dark focus:outline-none">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <!-- Script for Dropdown Menus and Icons -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- Standard Menu Logic (Dropdowns, Mobile, etc.) ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const openIcon = document.getElementById('menu-icon-open');
@@ -363,6 +484,59 @@
                 lucide.createIcons();
             } else {
                 console.error("Lucide icons script not loaded or failed to initialize.");
+            }
+
+            // --- UPDATED: Form Handling Logic with Formspree ---
+            const contactForm = document.getElementById('visitor-contact-form');
+            const successModal = document.getElementById('success-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+            const originalButtonText = submitButton ? submitButton.querySelector('span').innerHTML : 'Send Message';
+
+            if (contactForm && successModal && closeModalBtn && submitButton) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault(); // Stop page from reloading
+                    
+                    // Show loading state
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = `<span class="loader-small"></span> Sending...`;
+                    
+                    const formData = new FormData(contactForm);
+                    
+                    try {
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            // Show the modal
+                            successModal.classList.remove('hidden');
+                            if (typeof lucide !== 'undefined') {
+                                lucide.createIcons(); // Re-render icons for the checkmark
+                            }
+                            contactForm.reset();
+                        } else {
+                            // Handle form errors
+                            alert('Oops! There was a problem submitting your form. Please try again.');
+                        }
+                    } catch (error) {
+                        // Handle network errors
+                        console.error('Form submission error:', error);
+                        alert('Oops! A network error occurred. Please check your connection and try again.');
+                    } finally {
+                        // Reset button
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = `<span>${originalButtonText}</span>`;
+                    }
+                });
+
+                closeModalBtn.addEventListener('click', () => {
+                    successModal.classList.add('hidden');
+                });
             }
         });
     </script>
